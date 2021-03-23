@@ -23,11 +23,11 @@ try:
     password_field = WebDriverWait(driver, 10).until(
         EC.presence_of_element_located((By.ID, "password"))
     )
+except:
+    driver.quit()
 finally:
     email_field.send_keys(email)
     password_field.send_keys(password)
     password_field.send_keys(Keys.RETURN)
     time.sleep(5)
     driver.quit()
-
-
