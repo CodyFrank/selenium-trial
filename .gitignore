@@ -128,3 +128,4 @@ dmypy.json
 # Pyre type checker
 .pyre/
 /chromedriver 2
+/secrets.py
