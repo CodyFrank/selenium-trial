@@ -4,7 +4,7 @@ import time
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support import expected_conditions as ec
 
 PATH = "/Users/cody/dev/practice/selenium-trial/chromedriver 2"
 
@@ -18,16 +18,15 @@ log_in.click()
 
 try:
     email_field = WebDriverWait(driver, 10).until(
-        EC.presence_of_element_located((By.ID, "email"))
+        ec.presence_of_element_located((By.ID, "email"))
     )
     password_field = WebDriverWait(driver, 10).until(
-        EC.presence_of_element_located((By.ID, "password"))
+        ec.presence_of_element_located((By.ID, "password"))
     )
-except:
-    driver.quit()
-finally:
     email_field.send_keys(email)
     password_field.send_keys(password)
     password_field.send_keys(Keys.RETURN)
-    time.sleep(5)
+    # time.sleep(5)
+    # driver.quit()
+except:
     driver.quit()
