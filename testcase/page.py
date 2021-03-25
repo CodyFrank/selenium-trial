@@ -1,4 +1,9 @@
 from locator import *
+from element import BasePageElement
+
+
+class SearchTextElement(BasePageElement):
+    locator = "q"
 
 
 # each webpage will have its own page class that inherits from BasePage
