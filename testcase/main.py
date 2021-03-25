@@ -4,7 +4,7 @@ import page
 import secrets
 
 
-class PythonOrgSearch(unittest.TestCase):
+class ShoppingListTest(unittest.TestCase):
     # set up will run before each test
     def setUp(self):
         # initialize driver with path to chrome driver in my personal environment
