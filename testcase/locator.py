@@ -7,8 +7,8 @@ create classes that represent objects we want to find
 
 class MainPageLocators(object):
     # create a constant with how to locate each object
-    GO_BUTTON = (By.ID, "submit")
+    LOG_IN_BUTTON = (By.CSS_SELECTOR, "ul.navbar-nav li:nth-child(2) div .nav-link")
 
 
-class SearchResultsPageLocators(object):
-    pass
+class LogInPageLocators(object):
+    LOG_IN_BUTTON = (By.CSS_SELECTOR, ".btn-dark")

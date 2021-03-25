@@ -2,8 +2,12 @@ from locator import *
 from element import BasePageElement
 
 
-class SearchTextElement(BasePageElement):
-    locator = "q"
+class EmailFieldElement(BasePageElement):
+    locator = "email"
+
+
+class PasswordFieldElement(BasePageElement):
+    locator = "password"
 
 
 # each webpage will have its own page class that inherits from BasePage
@@ -14,17 +18,21 @@ class BasePage(object):
 
 class MainPage(BasePage):
 
-    search_text_element = SearchTextElement()
-
     # returns bool of whether or not the title matches expected title
     def is_title_matches(self):
-        return "Python" in self.driver.title
+        return "Shopping List" in self.driver.title
 
-    def click_go_button(self):
-        element = self.driver.find_element(*MainPageLocators.GO_BUTTON)
+    def click_log_in_button(self):
+        element = self.driver.find_element(*MainPageLocators.LOG_IN_BUTTON)
         element.click()
 
 
-class SearchResultPage(BasePage):
-    def is_result_found(self):
-        return "No results found." not in self.driver.page_source
+class LogInPage(BasePage):
+    def click_log_in_button(self):
+        element = self.driver.find_element(*LogInPageLocators.LOG_IN_BUTTON)
+        element.click()
+
+
+class HomePage(BasePage):
+    def is_logged_in(self):
+        return "Welcome Selenium" not in self.driver.page_source

@@ -1,6 +1,7 @@
 import unittest
 from selenium import webdriver
 import page
+import secrets
 
 
 class PythonOrgSearch(unittest.TestCase):
@@ -9,7 +10,7 @@ class PythonOrgSearch(unittest.TestCase):
         # initialize driver with path to chrome driver in my personal environment
         self.driver = webdriver.Chrome("/Users/cody/dev/practice/selenium-trial/chromedriver 2")
         # opens web page
-        self.driver.get("http://www.python.org")
+        self.driver.get("https://arcane-atoll-75350.herokuapp.com/")
 
     '''
     any method that's name starts with test
@@ -20,13 +21,21 @@ class PythonOrgSearch(unittest.TestCase):
     this is functionality of unittest
     '''
 
-    def test_search_python(self):
+    def test_title_matches(self):
         mainPage = page.MainPage(self.driver)
         assert mainPage.is_title_matches()
-        mainPage.search_text_element = "pycon"
-        mainPage.click_go_button()
-        search_result_page = page.SearchResultPage(self.driver)
-        assert search_result_page.is_result_found()
+
+    def test_log_in(self):
+        mainPage = page.MainPage(self.driver)
+        mainPage.click_log_in_button()
+        email_field_element = page.EmailFieldElement()
+        email_field_element = secrets.email
+        password_field_element = page.PasswordFieldElement()
+        password_field_element = secrets.password
+        logInPage = page.LogInPage(self.driver)
+        logInPage.click_log_in_button()
+        homePage = page.HomePage(self.driver)
+        assert homePage.is_logged_in()
 
     # tear down will run after each test
     def tearDown(self):

@@ -129,3 +129,4 @@ dmypy.json
 .pyre/
 /chromedriver 2
 /secrets.py
+testcase/secrets.py
