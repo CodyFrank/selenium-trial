@@ -24,3 +24,7 @@ class PythonOrgSearch(unittest.TestCase):
     def tearDown(self):
         # close web page
         self.driver.quit()
+
+
+if __name__ == "__main__":
+    unittest.main()
