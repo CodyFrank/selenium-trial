@@ -13,6 +13,9 @@ class BasePage(object):
 
 
 class MainPage(BasePage):
+
+    search_text_element = SearchTextElement()
+
     # returns bool of whether or not the title matches expected title
     def is_title_matches(self):
         return "Python" in self.driver.title
